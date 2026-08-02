@@ -1,5 +1,5 @@
-[ilon-oyini.html](https://github.com/user-attachments/files/30627995/ilon-oyini.html)
 # ilon-oyini.html
+[ilon-oyini (2).html](https://github.com/user-attachments/files/30628111/ilon-oyini.2.html)
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -16,6 +16,7 @@
     body {
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -24,6 +25,9 @@
       color: #fff;
       overflow: hidden;
       user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      padding: 10px 0;
     }
     h1 {
       font-size: 1.8rem;
@@ -49,14 +53,20 @@
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 3px rgba(255,255,255,0.08);
       max-width: 95vw;
-      max-height: 60vh;
+      max-height: 55vh;
+      width: 100%;
+      height: auto;
+      touch-action: none;
     }
     .controls {
-      margin-top: 16px;
+      margin-top: 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      width: 100%;
+      max-width: 320px;
+      padding: 0 10px;
     }
     .btn {
       background: linear-gradient(145deg, #00c853, #00a844);
@@ -79,37 +89,71 @@
     }
     .dpad {
       display: grid;
-      grid-template-columns: 60px 60px 60px;
-      grid-template-rows: 60px 60px 60px;
-      gap: 6px;
-      margin-top: 8px;
+      grid-template-columns: 70px 70px 70px;
+      grid-template-rows: 70px 70px 70px;
+      gap: 8px;
+      margin-top: 6px;
     }
     .dpad button {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       border: none;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.18);
       color: white;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: background 0.1s;
+      -webkit-user-select: none;
+      user-select: none;
+      touch-action: manipulation;
     }
     .dpad button:active {
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.35);
+      transform: scale(0.95);
     }
     .up { grid-column: 2; grid-row: 1; }
     .left { grid-column: 1; grid-row: 2; }
     .right { grid-column: 3; grid-row: 2; }
     .down { grid-column: 2; grid-row: 3; }
     .hint {
-      margin-top: 10px;
-      font-size: 0.85rem;
+      margin-top: 8px;
+      font-size: 0.8rem;
       opacity: 0.7;
       text-align: center;
+    }
+
+    /* Telefon uchun maxsus */
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+      }
+      .score-board {
+        gap: 12px;
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      .score-board span {
+        padding: 5px 12px;
+      }
+      #gameCanvas {
+        max-height: 50vh;
+      }
+      .dpad {
+        grid-template-columns: 76px 76px 76px;
+        grid-template-rows: 76px 76px 76px;
+        gap: 10px;
+      }
+      .dpad button {
+        width: 76px;
+        height: 76px;
+        font-size: 2rem;
+        border-radius: 18px;
+      }
     }
     .overlay {
       position: absolute;
